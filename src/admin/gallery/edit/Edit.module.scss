@@ -1,0 +1,29 @@
+.container{
+    margin-top: 1rem;
+
+    .images{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        .element{
+            position: relative;
+            border: 2px solid transparent;
+            img{
+                display: block;
+                width: 100%;
+                height: 250px;
+                cursor: pointer;
+            }
+            button{
+                margin: 0.5rem;
+                position: absolute;
+                color: var(--clr-red);
+            }
+        }
+        .selected{
+            border: 2px solid var(--clr-blue);
+        }
+    }
+
+
+}

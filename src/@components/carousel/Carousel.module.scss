@@ -1,0 +1,22 @@
+.container{
+    max-width: 1000px;
+    margin: auto;
+
+    .buttons{
+        display: flex;
+        justify-content: right;
+
+        svg{
+            font-size: 2rem;
+            background-color: rgba(196, 195, 195, 0.473);
+            border-radius: 50px;
+            display: flex;
+            color: #555555;
+            margin: 0 0.5rem;
+
+            &:hover{
+                color: var(--clr-main);
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.container{
+    margin-top: 1rem;
+
+    .element{
+        display: flex;
+        align-items: center;
+        button{
+            padding: 0.5rem 0;
+        }
+        button:nth-child(1){
+            width: 50px;
+        }
+    }
+    .selected{
+        background-color: var(--clr-background-light);
+    }
+
+    form{
+        max-width: 400px;
+        margin: auto;
+    }
+}

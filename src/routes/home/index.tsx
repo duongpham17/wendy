@@ -1,0 +1,28 @@
+import styles from './Home.module.scss';
+import React from 'react';
+
+import Introduction from './introduction';
+import Reviews from './reviews';
+import Contact from './contact';
+
+import Observer from '@components/observer/Observer';
+
+const Home = () => {
+  return (
+    <div className={styles.container}>
+
+      <Introduction />
+
+      <Observer>
+        <Reviews />
+      </Observer>
+
+      <Observer>
+        <Contact />
+      </Observer>
+
+    </div>
+  )
+}
+
+export default Home

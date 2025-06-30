@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+
+    .links, .brand{
+        width: 100%;
+    }
+
+    .brand{
+        text-align: center;
+        width: 100%;
+        a{
+            font-size: 2.2rem;
+            &:hover{
+                color: var(--clr-main);
+            }
+        }
+    }
+
+    .links{
+        display: flex;
+        a{
+            display: block;
+            font-weight: 200;
+            border-bottom: 1px solid transparent;
+            text-align: center;
+            padding: 0.5rem 5%;
+            font-weight: 600;
+            &:hover{
+                color: var(--clr-main);
+                border-bottom-color: var(--clr-main);
+            }
+        }
+        .selected{
+            border-bottom-color: white;
+        }
+    
+    }
+
+}

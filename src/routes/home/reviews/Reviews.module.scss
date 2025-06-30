@@ -1,0 +1,41 @@
+.container{
+    margin: 5rem auto;
+
+    header{
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    .element{
+        padding: 1.5rem;
+        height: 300px;
+        margin: 0.5rem;
+        background-color: rgba(245, 245, 245, 0.409);
+
+        h1{
+            font-weight: 200;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        p{
+            font-weight: 200;
+            font-size: 0.9rem;
+            color: var(--clr-grey);
+            height: 180px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+
+            &::-webkit-scrollbar {
+                display: none;
+              }
+        }
+
+        div{
+            span{
+                margin-right: 0.2rem;
+            }
+        }
+    }
+
+}

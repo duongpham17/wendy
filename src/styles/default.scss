@@ -1,0 +1,39 @@
+html, body {
+  font-size: 18px;
+  min-width: 320px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color:white;
+}
+.bodyScrollBar{
+  overflow: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+a, button, input, li, ul, p, q {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background: none;
+  list-style: none;
+  font-size: 1rem;
+  color: black;
+}
+
+img{
+  object-fit: cover;
+}
+
+button, a{
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}

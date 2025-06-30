@@ -1,0 +1,23 @@
+.container{
+    padding: 0.5rem 0;
+    .upload{
+        .inputFile{
+            display: none;
+        }
+        label{
+            display: block;
+            text-align: center;
+            border: 2px dotted black;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            &:hover{
+                border-color: var(--clr-main);
+            }
+        }
+    }
+
+}

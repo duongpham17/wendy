@@ -1,0 +1,24 @@
+.container{
+    display: inline-flex;
+    width: 100%;
+    overflow-y: auto;
+    .element{
+        .createBtn{
+            background-color: black;
+            color: white;
+        }
+        button{
+            padding: 0.5rem;
+            background-color: var(--clr-light);
+            width: 120px;
+            margin: 0.1rem;
+        }
+        .selected{
+            background-color: var(--clr-blue);
+        }
+    }
+    form{
+        max-width: 400px;
+        margin: auto;
+    }
+}

@@ -1,0 +1,50 @@
+.container{
+    margin: 6rem auto;
+    text-align: center;
+
+    .visit{
+        margin: 1rem auto;
+    }
+
+    .booknow{
+        margin: 1rem auto;
+        text-align: center;
+
+        a{
+            border-radius: 50px;
+            background-color: var(--clr-main);
+            padding: 0.5rem;
+            display: block;
+            color: white;
+            width: 250px;
+            margin: auto;
+
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+    }
+
+    .address, .hours{
+        margin: 1rem 0;
+        a{
+            &:hover *{
+                color: var(--clr-main);
+            }
+        }
+        p{
+            line-height: 1.5rem;
+        }
+    }
+
+    .address, .hours{
+        svg{
+            font-size: 4rem;
+            padding: 0.5rem;
+        }
+        div{
+            text-align: left;
+        }
+    }
+
+}
