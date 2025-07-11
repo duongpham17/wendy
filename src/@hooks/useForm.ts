@@ -1,84 +1,112 @@
 import { useState, useEffect } from 'react';
 
-export const useForm = <T>(initialState: T, callback: CallableFunction, validation?: any) => {
+type ValidationFn<T> = (values: T) => { [K in keyof T]?: string } | null;
 
-    const [edited, setEdited] = useState(false);
+type InputEvent =
+  | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLTextAreaElement>
+  | React.ChangeEvent<HTMLSelectElement>;
 
-    const [values, setValues] = useState<T>(initialState);
-
-    const [validationErrors, setValidationErrors] = useState<{[key: string]: any}>({});
-
-    const [customErrors, setCustomErrors] = useState<{[key: string]: any}>({});
-
-    const [loading, setLoading] = useState<boolean>(false);
-
-    const onChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
-        if(event.target.name.includes(".")){
-            const keys = event.target.name.split(".");
-            const nested = values as any
-            const n = nested[keys[0]];
-            setValues({...values, [keys[0]]: {
-                ...n,
-                [keys[1]]: event.target.value
-            }});
-        } else {
-            setValues({...values, [event.target.name] : event.target.value});
-        }
-        if(!edited) setEdited(true);
-    };
-
-    const onSetValue = (v: Partial<typeof initialState | T>) => {
-        setValues(state => ({...state, ...v}))
-        if(!edited) setEdited(true);
-    }
-
-    const onSetCustomErrors = (v: any) => {
-        setCustomErrors(state => ({...state, ...v}))
-    }
-
-    const onClear = (state?: T) => {
-        if(!state) setValues(initialState);
-        if(state) setValues(state);
-        setEdited(false);
-    }
-
-    useEffect(() => {
-        return () => {
-            setLoading(false);
-            setEdited(false);
-        }
-    }, [])
-
-    const onSubmit = async (event: React.SyntheticEvent) => {
-        event.preventDefault();
-
-        if(loading) return;
-
-        const ve = !validation ? {} : validation(values);
-
-        const noErrors = ve === null ? true : Object.keys(ve).length === 0;
-
-        if(noErrors) {
-            setLoading(true);
-            await callback();
-            setLoading(false);
-            setEdited(false);
-        };
-
-        setValidationErrors(ve);
-    };
-
-    return {
-        values, setValues,
-        validationErrors, setValidationErrors,
-        customErrors, setCustomErrors, onSetCustomErrors,
-        loading, setLoading,
-        edited, setEdited,
-        onSetValue,
-        onChange, 
-        onSubmit,
-        onClear,
-    }
+function setDeepValue(obj: any, path: string[], value: any): any {
+  if (path.length === 1) return { ...obj, [path[0]]: value };
+  return {
+    ...obj,
+    [path[0]]: setDeepValue(obj[path[0]] || {}, path.slice(1), value),
+  };
 }
+
+export const useForm = <T>(
+  initialState: T,
+  callback: CallableFunction,
+  validation?: ValidationFn<T>
+) => {
+  const [values, setValues] = useState<T>(initialState);
+  const [validationErrors, setValidationErrors] = useState<Partial<Record<keyof T, string>>>({});
+  const [customErrors, setCustomErrors] = useState<Partial<Record<keyof T, string>>>({});
+  const [loading, setLoading] = useState(false);
+  const [edited, setEdited] = useState(false);
+
+  const onChange = (event: InputEvent) => {
+    const { name, value } = event.target;
+
+    if (name.includes('.')) {
+      const keys = name.split('.');
+      const updated = setDeepValue(values, keys, value);
+      setValues(updated);
+    } else {
+      setValues({ ...values, [name]: value } as T);
+    }
+
+    if (!edited) setEdited(true);
+  };
+
+  const onSetValue = (v: Partial<T>) => {
+    setValues((state) => ({ ...state, ...v }));
+    if (!edited) setEdited(true);
+  };
+
+  const onSetCustomErrors = (v: Partial<Record<keyof T, string>>) => {
+    setCustomErrors((state) => ({ ...state, ...v }));
+  };
+
+  const clearErrors = () => {
+    setValidationErrors({});
+    setCustomErrors({});
+  };
+
+  const onClear = (state?: T) => {
+    setValues(state ?? initialState);
+    setEdited(false);
+    clearErrors();
+  };
+
+  const handleSubmit = async () => {
+    if (loading) return;
+
+    const ve = validation ? validation(values) : {};
+    const noErrors = !ve || Object.keys(ve).length === 0;
+
+    if (noErrors) {
+      setLoading(true);
+      await callback();
+      setLoading(false);
+      setEdited(false);
+    }
+
+    setValidationErrors(ve ?? {});
+  };
+
+  const onSubmit = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    await handleSubmit();
+  };
+
+  useEffect(() => {
+    return () => {
+      setLoading(false);
+      setEdited(false);
+    };
+  }, []);
+
+  return {
+    values,
+    setValues,
+    validationErrors,
+    setValidationErrors,
+    customErrors,
+    setCustomErrors,
+    onSetCustomErrors,
+    loading,
+    setLoading,
+    edited,
+    setEdited,
+    onSetValue,
+    onChange,
+    onSubmit,
+    handleSubmit,
+    onClear,
+    clearErrors,
+  };
+};
 
 export default useForm;

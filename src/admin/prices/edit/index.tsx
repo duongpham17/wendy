@@ -1,5 +1,5 @@
 import styles from './Edit.module.scss';
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Context} from "../Context";
 import {api} from '@database/api';
 import useForm from '@hooks/useForm';
@@ -53,6 +53,10 @@ const Edit = () => {
                 ? <Button label1="Delete" onClick={() => setSure(true)} />
                 : <Flex><Button label1="sure" color="red" onClick={onDeletePrice} /><Button label1="cancel" onClick={() => setSure(false)} /></Flex>
             }
+
+            <Line />
+
+            <Header />
             
             <Line />
 
@@ -72,6 +76,42 @@ const Edit = () => {
         </div>
     )
 };
+
+const Header = () => {
+
+    const {selectedData, setSelectedData} = useContext(Context);
+
+    const [edit, setEdit] = useState(false);
+
+    const {values, onChange, edited, loading, onSubmit, setValues} = useForm(selectedData, callback);
+    
+    async function callback(){
+        if(!edited) return;
+        const updated = values;
+        await api.patch("/prices", updated);
+        setSelectedData(updated);
+    };
+
+    useEffect(() => {
+        if (selectedData) {
+            setValues(selectedData);
+        }
+    }, [selectedData, setValues]);
+    
+    return (
+        <div className={styles.header}>
+            <button onClick={() => setEdit(true)}>{selectedData?.type}</button>
+            {edit &&
+                <Cover onClose={() => setEdit(false)} open={edit?true:false}>
+                    <form onSubmit={onSubmit}>
+                        <Input value={values?.type} name="type" onChange={onChange}/>
+                        {edited && <Button type="submit" label1="update" color="blue" loading={loading}/>}
+                    </form>
+                </Cover>
+            }
+        </div>
+    )
+}
 
 const Create = () => {
 

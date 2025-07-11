@@ -23,7 +23,7 @@ const Selector = () => {
             </div>  
             {data.map(el => 
                 <div className={styles.element} key={el._id as string}>
-                    <button className={selectedData?._id === el._id ? styles.selected : ""} onClick={() => setSelectedData(el)}>{el.type.slice(0, 9)}</button>
+                    <button className={selectedData?._id === el._id ? styles.selected : ""} onClick={() => setSelectedData(el)}>{el.type}</button>
                 </div>    
             )}
             {create && <Create create={create} setCreate={setCreate} />}

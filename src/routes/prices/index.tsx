@@ -1,6 +1,6 @@
 import styles from './Prices.module.scss';
 import React from 'react';
-import {Props} from 'prices';
+import {Props} from 'pages/prices';
 
 import Introduction from './introduction';
 import Items from './items';
