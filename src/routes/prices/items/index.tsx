@@ -1,6 +1,6 @@
 import styles from './Items.module.scss';
 import React from 'react';
-import {Props} from 'prices';
+import {Props} from 'pages/prices';
 import useOpen from '@hooks/useOpen';
 
 import { MdKeyboardArrowRight } from 'react-icons/md';
