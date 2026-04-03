@@ -17,21 +17,6 @@ export const data = [
         `
     },
     {
-        title: "SNS",
-        image: "/services_sns.webp",
-        description: `
-        If you're torn between acrylics and gel colour, why not try SNS? 
-
-        SNS dipping powder is thicker than gel colour but thinner than acrylics, meaning it has a strong but lightweight feel maintaining a more natural look.
-
-        You can have tips with your SNS set for a longer look or just on your natural nails to keep it strong. 
-        
-        This is a great in-between option for those who prefer a more natural finish but with extra strength for the nails. 
-
-        Gel colour can also be added on top of SNS for a glossy finish or you can have colour SNS where the powder is already coloured!
-        `
-    },
-    {
         title: "Gel",
         image: "/services_gel.webp",
         description: `

@@ -12,10 +12,11 @@ const Reviews = () => {
     return (
         <div className={styles.container}>
             <header>
-                <h1>Our Reviews</h1>
+                <h1>Reviews</h1>
             </header>
 
-            <Swiper data={data} slidersPerView={width>=1000?4:width>=700?3:width>=500?2:1} auto>
+            <div className={styles.swiper}>
+                <Swiper data={data} slidersPerView={width>=1000?4:width>=700?3:width>=500?2:1} auto>
                 {(el) => 
                     <div key={el.id} className={styles.element}>
                         <h1>{el.name}</h1>
@@ -26,6 +27,7 @@ const Reviews = () => {
                     </div>
                 }
             </Swiper>
+            </div>
 
         </div>
     )

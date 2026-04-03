@@ -17,11 +17,13 @@ const socials = [
     }
 ];
 
+const year = new Date().getFullYear()
+
 const index = () => {
   return (
     <div className={styles.container}>
         <div className={styles.url}>
-            <p>@ 2021, Wendynail.co.uk</p>
+            <p>@{year}, Wendynail.co.uk</p>
         </div>
         <div className={styles.socials}>
         {socials.map((el, index) => 

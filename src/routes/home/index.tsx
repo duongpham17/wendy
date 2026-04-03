@@ -2,6 +2,7 @@ import styles from './Home.module.scss';
 import React from 'react';
 
 import Introduction from './introduction';
+import Services from './services';
 import Reviews from './reviews';
 import Contact from './contact';
 
@@ -12,6 +13,10 @@ const Home = () => {
     <div className={styles.container}>
 
       <Introduction />
+
+      <Observer>
+        <Services />
+      </Observer>
 
       <Observer>
         <Reviews />

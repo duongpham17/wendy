@@ -1,7 +1,5 @@
 .container{
     margin: 5rem auto;
-    background-color: var(--clr-main-fade);
-    padding: 1rem;
 
     header{
         text-align: center;
@@ -16,7 +14,7 @@
         padding: 1.5rem;
         height: 300px;
         margin: 0.5rem;
-        background-color: white;
+        background-color: rgba(245, 245, 245, 0.409);
 
         h1{
             font-weight: 200;
@@ -30,6 +28,7 @@
             color: var(--clr-grey);
             height: 180px;
             overflow-y: auto;
+            margin-bottom: 1rem;
 
             &::-webkit-scrollbar {
                 display: none;
