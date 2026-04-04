@@ -6,7 +6,7 @@ export default function Index() {
     <>
       <Meta 
         title="Nail Salon in corringham & stanford-le-hope"
-        description="Professional nail salon offering acrylic, gel, SNS nails, eyebrow treatments and relaxing massage services in [Your City]. Book your appointment today."
+        description="Professional nail salon offering acrylic, biab, gel, SNS nails, nail art, pedicure, eyebrow treatments and relaxing massage services in corringham & stanford-le-hope. Book your appointment today."
       />
       <Home />
     </>
