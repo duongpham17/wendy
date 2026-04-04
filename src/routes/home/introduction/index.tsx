@@ -8,7 +8,7 @@ const Introduction = () => {
     <div className={styles.container}>
 
       <section className={styles.content}>
-        <h1>Welcome</h1>
+        <h1>Wendy's Nails & Beauty</h1>
         <Link href="/services" value="discover our services" />
         <small>Founded in 2006</small>
       </section>

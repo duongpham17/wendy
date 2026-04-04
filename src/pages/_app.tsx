@@ -18,7 +18,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <UseAuthentication>
       <main className={font.className}>
         <Admin />
-        <Navbar/>
         <div className={styles.container}> <Component {...pageProps} /></div>
         <Footer/>
       </main>
