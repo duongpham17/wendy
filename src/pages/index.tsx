@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <>
       <Meta 
-        title="Wendy Nails & Beauty | Nail Salon in corringham & stanford-le-hope"
+        title="Nail Salon in corringham & stanford-le-hope"
         description="Professional nail salon offering acrylic, gel, SNS nails, eyebrow treatments and relaxing massage services in [Your City]. Book your appointment today."
       />
       <Home />
