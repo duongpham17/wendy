@@ -4,7 +4,10 @@ import Home from 'routes/home';
 export default function Index() {
   return (
     <>
-      <Meta title="Home" description="Wendy nails and beauty - nail salon - arcylic - gel - sns - eyebrows - massage" />
+      <Meta 
+        title="Wendy Nails & Beauty | Nail Salon in corringham & stanford-le-hope"
+        description="Professional nail salon offering acrylic, gel, SNS nails, eyebrow treatments and relaxing massage services in [Your City]. Book your appointment today."
+      />
       <Home />
     </>
   )
