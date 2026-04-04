@@ -6,7 +6,7 @@ export const Index = () => {
     return (
         <>
             <Meta 
-                title="Nail & Beauty Services"
+                title="Services | Nail Salon in Corringham"
                 description="Explore our full range of nail and beauty services including acrylic nails, SNS, gel manicures, eyebrow treatments and massage in Corringham."
             />
             <Services />
