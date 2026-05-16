@@ -34,7 +34,6 @@ export const Index = (props: Props) => {
             <Meta 
                 title="Price" 
                 image="/price_intro.webp"
-                keywords={props.prices.map(el => el.type).join(",")}
                 description="prices of acrylic, gel, art, seasonal, ombre, footcare, pedicure, colors, repair, colour, fullset, infills, tint" 
             />
             <Prices {...props} />

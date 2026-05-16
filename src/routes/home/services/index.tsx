@@ -16,7 +16,7 @@ const Services = () => {
             </header>
 
             <div className={styles.swiper}>
-                <Swiper data={data} slidersPerView={width>=1000?4:width>=700?3:width>=500?2:1}>
+                <Swiper data={data} slidersPerView={width>=1000?4:width>=700?3:width>=500?2:1} auto>
                     {(el) => 
                         <div key={el.id} className={styles.element}>
                             <h1>{el.id}</h1>

@@ -1,16 +1,11 @@
 .container{
     a{
-        display: block;
-        padding: 0.8rem 2rem;
         display: flex;
+        padding: 0.8rem 2rem;
         align-items: center;
         justify-content: space-between;
         border-radius: 50px;
         margin: 1rem auto;
-
-        span:nth-child(2){
-            margin-left: 0.5rem;
-        }
 
         &:hover{
             opacity: 0.8;
@@ -30,8 +25,4 @@
 .white{
     background-color: white;
     color: var(--clr-main);
-}
-
-.dark{
-
 }

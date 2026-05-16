@@ -33,7 +33,6 @@ export const Index = (props: Props) => {
         <>
             <Meta 
                 title="Gallery" 
-                keywords={props.gallery.map(el => el.type).join(",")}
                 image="/gallery_intro.webp"
                 description="nail images, acrylic, gel, art, seasonal, ombre and many more designs" 
             />

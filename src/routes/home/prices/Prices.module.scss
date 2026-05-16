@@ -1,0 +1,22 @@
+.container{
+    margin: 5rem auto;
+    padding: 1rem;
+
+    header{
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    .prices{
+        max-width: 800px;
+        margin: auto;
+        .item{
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--clr-main);
+            p{
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+}

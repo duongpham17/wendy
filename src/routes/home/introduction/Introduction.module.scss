@@ -21,7 +21,11 @@
     font-size: clamp(2rem, 3vw, 5vw);
   }
 
-  small, h1 {
+  a{
+    padding: 0.8rem 1rem;
+  }
+
+  b, h1 {
     color: white;
   }
 

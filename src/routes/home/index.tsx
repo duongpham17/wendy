@@ -3,6 +3,7 @@ import React from 'react';
 
 import Introduction from './introduction';
 import Services from './services';
+import Prices from './prices';
 import Reviews from './reviews';
 import Contact from './contact';
 
@@ -16,6 +17,10 @@ const Home = () => {
 
       <Observer>
         <Services />
+      </Observer>
+
+      <Observer>
+        <Prices />
       </Observer>
 
       <Observer>

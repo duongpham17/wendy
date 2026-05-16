@@ -36,7 +36,7 @@ const SwiperContainer = <T,>({data, children, slidersPerView=5, arrows, auto}: P
                     className={styles.swiper}
                     modules={[Navigation, Pagination, Autoplay]} 
                     spaceBetween={5} 
-                    autoplay={auto ? {} : {delay: 3000}}
+                    autoplay={!auto ? {delay: 0} : {delay: 3000}}
                     slidesPerView={slidersPerView} 
                     navigation={{
                         prevEl: navigationPrevRef.current,

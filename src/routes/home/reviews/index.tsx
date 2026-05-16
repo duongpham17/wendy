@@ -17,16 +17,16 @@ const Reviews = () => {
 
             <div className={styles.swiper}>
                 <Swiper data={data} slidersPerView={width>=1000?4:width>=700?3:width>=500?2:1} auto>
-                {(el) => 
-                    <div key={el.id} className={styles.element}>
-                        <h1>{el.name}</h1>
-                        <p>{el.review}</p>
-                        <div>
-                            <span>{[...new Array(el.stars)].map((_, index) => <AiTwotoneStar key={index}/>)}</span>
+                    {(el) => 
+                        <div key={el.id} className={styles.element}>
+                            <h1>{el.name}</h1>
+                            <p>{el.review}</p>
+                            <div>
+                                <span>{[...new Array(el.stars)].map((_, index) => <AiTwotoneStar key={index}/>)}</span>
+                            </div>
                         </div>
-                    </div>
-                }
-            </Swiper>
+                    }
+                </Swiper>
             </div>
 
         </div>
